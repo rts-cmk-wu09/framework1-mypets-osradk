@@ -15,6 +15,10 @@ border-top-left-radius: 20px;
   height:105px;
   margin:0 auto;
   box-shadow:-5px -5px 10px rgba(255, 255, 255, 0.5);
+  position:fixed;
+  width:100%;
+  bottom:0;
+
 `
 const Footer = () => {
   return (

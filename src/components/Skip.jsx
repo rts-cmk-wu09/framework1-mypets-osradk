@@ -1,27 +1,34 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const StyledH4 = styled.h4`
-color:white;
-padding-top:12px;
-font-weight:300;
-`
+  color: white;
+  padding-top: 12px;
+  font-weight: 300;
+`;
 
-const StyledDiv = styled.div`
+const StyledButton = styled.button`
   width: 327px;
   background-color: rgba(87, 65, 157, 1);
-  height:44px;
-  border-radius:32px;
-display:flex;
-justify-content:center;
-margin:0 auto;
- margin-top: ${props => props.marginTop}px;
- margin-bottom:12px;
+  height: 44px;
+  border-radius: 32px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: ${(props) => props.marginTop}px;
+
 `;
 
 const Skip = (props) => {
-  return <StyledDiv{...props}> 
-<StyledH4 >Skip</StyledH4>
-  </StyledDiv>;
+  return (
+    <Link to="/Listevisning">
+    <StyledButton {...props}>
+  
+        <StyledH4>Skip</StyledH4>
+   
+    </StyledButton>
+    </Link>
+  );
 };
 
 export default Skip;

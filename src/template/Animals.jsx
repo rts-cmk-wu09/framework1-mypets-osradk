@@ -9,21 +9,29 @@ const StyledDiv = styled.div`
   display: flex;
   justify-content:center;
   align-items: center;
-  
-`;
+ 
 
-const Animals = () => {
+`;
+const StyledSection=styled.section`
+padding-bottom:24px;
+
+`
+
+const Animals = (props) => {
+  
   return (
+<StyledSection>
     <StyledDiv>
       <Heading
         color="#7878AB"
         as="h4"
-        title="Cats"
+        title={props.title} 
         weight="700"
         fontSize="14"
        
       />
     </StyledDiv>
+    </StyledSection>
   );
 };
 

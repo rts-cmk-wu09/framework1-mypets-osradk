@@ -5,6 +5,7 @@ const StyledImage = styled.img`
   position: ${(props) => props.position};
   width: ${(props) => props.width}px;
   height: ${(props) => props.height}px;
+  border-radius: ${(props) => props.borderRadius}px;
   max-width: 100%;
   ${(props) =>
     (props.shadow &&
@@ -17,7 +18,7 @@ const StyledImage = styled.img`
         object-fit: cover;
       `)};
 
-  border-radius: ${(props) => props.borderRadius}%;
+  border-radius:${(props) => props.borderRadius}%;
 `;
 
 const Image = (props) => {

@@ -31,7 +31,7 @@ const Description = () => {
         align="center"
       />
       <StyledP>
-      Taking care of a pet is my favorite, it helps me to gaimr stress and fatigue.
+      
       </StyledP>
      </StyledDiv>
       <Image

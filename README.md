@@ -29,3 +29,6 @@
 ### **Deadlink**:
 - I har 8 arbejdsdage til at løse opgaven. 
 - Opgaven skal afleveres senenst d. 8/6 kl. 14:24. Classroom'et lukker 14:25!
+
+key = 6FnWuZyECLR31Brr6Ftgs3srIBQEa7jgIt7DmwLpSPWGD4FpqW
+Z3jTwneEqBCHJm7ygcJMegj4AwHyP1tMb3wsCEsS  = Secret

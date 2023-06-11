@@ -14,9 +14,9 @@ const StyledButton = styled.button`
   border-radius: 32px;
   display: flex;
   justify-content: center;
-  margin: 0 auto;
+margin:0 auto;
   margin-top: ${(props) => props.marginTop}px;
-
+  margin-bottom: ${(props) => props.marginBottom}px;
 `;
 
 const Skip = (props) => {

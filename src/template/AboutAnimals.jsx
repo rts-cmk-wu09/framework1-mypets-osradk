@@ -7,6 +7,9 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import useAxios from "../useAxios";
 
+import { useContext } from "react";
+import { AnimalContext } from "../AnimalContext";
+
 const StyledDiv = styled.div`
   display: flex;
   justify-content: space-between;
@@ -18,15 +21,14 @@ const SyledDiv1 = styled.div`
   gap: 5px;
 `;
 const StyledArticle = styled.article`
-  margin-top: 44px;
   display: flex;
-  justify-content:space-around;
-  padding:8px;
+  justify-content: space-between;
+  padding: 8px;
   width: 327px;
   height: 130px;
   border-radius: 16px;
   box-shadow: var(--box-shadow-dark);
-  margin: 40px auto;
+  margin: 30px auto;
   background-color: #f5f5fa;
 `;
 
@@ -37,24 +39,30 @@ const StyledP = styled.p`
   color: rgba(79, 79, 79, 1);
   margin-top: 12px;
 `;
+
 const AboutAnimals = () => {
   const [data, error, loading] = useAxios();
+  const { storeAnimalData } = useContext(AnimalContext);
 
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {error.message}</p>;
+  }
   return (
     <>
-      {error && <p></p>}
-      {loading && <p></p>}
-      {data && (
+      {data && data.animals && (
         <>
           {data.animals.map((animal) => (
             <div key={animal.id}>
-              <Link to="/Detaljevisning">
+              <Link
+                to="/Detaljevisning"
+                onClick={() => storeAnimalData(animal)}
+              >
                 <StyledArticle>
-                  <section
-                    style={{
-                      padding: "5px",
-                    }}
-                  >
+                  <section>
                     <img
                       style={{
                         borderRadius: "16px",
@@ -77,7 +85,7 @@ const AboutAnimals = () => {
                             animal.name.length > 25
                               ? animal.name.split(" ").slice(0, 1).join(" ") +
                                 "..."
-                              : animal.name
+                              : animal.name.split(" ").slice(0, 1).join(" ")
                           }
                         />
                       </div>

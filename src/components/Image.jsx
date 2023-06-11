@@ -1,11 +1,10 @@
 import styled, { css } from "styled-components";
 
 const StyledImage = styled.img`
-  border-radius: 5px;
+
   position: ${(props) => props.position};
   width: ${(props) => props.width}px;
   height: ${(props) => props.height}px;
-  border-radius: ${(props) => props.borderRadius}px;
   max-width: 100%;
   ${(props) =>
     (props.shadow &&

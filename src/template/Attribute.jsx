@@ -4,6 +4,8 @@ import pawprint from "../assets/pawprint.png";
 import group from "../assets/Group.png";
 import Heading from "../components/Heading";
 import AttributeImg from "../components/AttributeImg";
+import { useContext } from "react";
+import { AnimalContext } from "../AnimalContext";
 
 const StyledP = styled.p`
   color: #9e9e9e;
@@ -11,14 +13,13 @@ const StyledP = styled.p`
   font-weight: 500;
   line-height: 24px;
   margin: 16px auto;
-  align-self:left;
+  align-self: left;
 `;
 
 const StyledArticle = styled.article`
   display: flex;
   gap: 46px;
-  margin-top:24px;
-
+  margin-top: 24px;
 `;
 const StyledSection = styled.section`
   display: flex;
@@ -40,16 +41,19 @@ const StyledDiv = styled.div`
   align-items: center;
 `;
 
- const StyledDiv1= styled.div`
- display:flex;
- gap:19px;
- `
-const StyledSpan=styled.span`
-color:
-#57419D;
-font-weight:900;
-`
+const StyledDiv1 = styled.div`
+  display: flex;
+  gap: 19px;
+`;
+const StyledSpan = styled.span`
+  color: #57419d;
+  font-weight: 900;
+`;
 const Attribute = () => {
+  const { animalData } = useContext(AnimalContext);
+
+  console.log(animalData.data);
+
   return (
     <>
       <StyledArticle>
@@ -58,26 +62,22 @@ const Attribute = () => {
             <Image src={pawprint} width="24" height="24" />
           </StyledDiv>
 
-          <Heading title="Greyhound" as="h3" />
+          <Heading title={animalData.data.breeds.primary} as="h3" />
         </StyledSection>
         <StyledSection>
           <StyledDiv>
             <Image src={group} width="24" height="24" />
           </StyledDiv>
 
-          <Heading title="Male" as="h3" />
+          <Heading title={animalData.data.gender} as="h3" />
         </StyledSection>
       </StyledArticle>
       <StyledP>
-        The dog (Canis familiaris when considered a distinct species or Canis
-        lupus familiaris when considered a subspecies of the wolf) is a
-        domesticated carnivore of the fam... <StyledSpan>More</StyledSpan>
+        {animalData.data.description} <StyledSpan>More</StyledSpan>
       </StyledP>
       <StyledDiv1>
-    <AttributeImg/>
-    <AttributeImg/>
-    <AttributeImg/>
-    </StyledDiv1>
+        <AttributeImg />
+      </StyledDiv1>
     </>
   );
 };

@@ -7,14 +7,13 @@ import Animals from "../template/Animals";
 import AboutAnimals from "../template/AboutAnimals";
 import Footer from "../template/Footer";
 
-
 const StylesHeader = styled.header`
-border-bottom-left-radius: 20px;
+  border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
-  position:sticky;
-  background-color:white;
-  width:100%;
-top:0;
+  position: sticky;
+  background-color: white;
+  width: 100%;
+  top: 0;
 `;
 
 const StyledDiv = styled.div`
@@ -31,21 +30,15 @@ const StyledSection = styled.section`
 const StyledSection1 = styled.section`
   display: flex;
   justify-content: space-between;
-padding: 24px 24px 0 24px ;
- 
+  padding: 24px 24px 0 24px;
 `;
 const StyledMain = styled.main`
-
-
- padding-bottom:75px;
+  padding-bottom: 75px;
 `;
 const Listevisning = () => {
-  
-
   return (
     <>
-   
-        <StylesHeader>
+      <StylesHeader>
         <StyledSection1>
           <StyledDiv>
             <div>
@@ -64,20 +57,16 @@ const Listevisning = () => {
           <div>
             <BsBell className="notification-icon" />
           </div>
-          </StyledSection1>
-          <StyledSection>
-          
+        </StyledSection1>
+        <StyledSection>
           <Animals title="Dogs" />
           <Animals title="Cats" />
           <Animals title="Bird" />
           <Animals title="Other" />
-  
-         
-          </StyledSection>
-        </StylesHeader>
-  
+        </StyledSection>
+      </StylesHeader>
+
       <StyledMain>
-   
         <AboutAnimals />
       </StyledMain>
       <footer>

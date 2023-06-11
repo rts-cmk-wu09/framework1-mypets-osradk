@@ -1,65 +1,94 @@
-import Image from "../components/Image"
-import detaljeImg from "../assets/animal1.png"
-import styled from "styled-components"
-import Heading from "../components/Heading"
+import Image from "../components/Image";
+import detaljeImg from "../assets/animal1.png";
+import styled from "styled-components";
+import Heading from "../components/Heading";
 import { FaPeriscope } from "react-icons/fa";
-import Attribute from "../template/Attribute"
-import Skip from "../components/Skip"
+import Attribute from "../template/Attribute";
+import Skip from "../components/Skip";
+import { useContext } from "react";
+import { AnimalContext } from "../AnimalContext";
 
-const StyledMain =styled.main`
-border-top-left-radius: 20px;
+const StyledMain = styled.main`
+  border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  background-color:
-#F5F5FA;
-  margin-top:-40px;
-  position:relative;
-  z-index:2;
-  padding:24px;
- 
+  background-color: #f5f5fa;
+  margin-top: -40px;
+  position: relative;
+  z-index: 2;
+  padding: 24px;
+`;
 
-`
-
-const StyledHeader =styled.header`
-posation:relative;
-`
-const SyledDiv=styled.div`
+const StyledHeader = styled.header`
+  posation: relative;
+`;
+const SyledDiv = styled.div`
   display: flex;
-  gap:5px;
-`
+  gap: 5px;
+`;
+
 const Detaljevisning = () => {
+  const  {animalData}  = useContext(AnimalContext);
+
+  console.log(animalData.data);
+  // const [animal, setAnimal] = useState(null);
+
+  // useEffect(() => {
+  //   if (animalData) {
+  //     // Find the animal data based on the stored ID
+  //     const selectedAnimal = data.find((animal) => animal.id === animalData.id);
+  //     setAnimal(selectedAnimal);
+  //   }
+  // }, [animalData]);
+
+  // if (!animal) {
+  //   return <p>Loading...</p>;
+  // }
+
+  // Access the properties of the selected animal
+  //const { name, city, description, photos } = animal;
+
   return (
     <div>
       <StyledHeader>
-<Image
-position="absolut"
- 
-    src={detaljeImg}
-/>
+        <Image
+          position="absolut"
+          src={
+            animalData.data.photos.length > 0
+              ? animalData.data.photos[0].full
+              : detaljeImg
+          }
+        />
       </StyledHeader>
       <StyledMain>
-<Heading
-    title="Greyhound"
-    as="h1"
-    weight="900"
-    textAlign="left"
-/>
-
-<SyledDiv>
-            <div>
-              
-              <FaPeriscope  className="navigation-icon"/>
-            </div>
-            <div>
-            
-              <Heading as="h5"  weight="500" title="New York City" fontSize="14" color="#828282"/>
-            </div>
-          </SyledDiv>
-          <Attribute/> 
-           <Skip marginTop="36"/>
+        {animalData && (
+          <>
+            <Heading
+              title={animalData.data.name}
+              as="h1"
+              weight="900"
+              textAlign="left"
+            />
+            <SyledDiv>
+              <div>
+                <FaPeriscope className="navigation-icon" />
+              </div>
+              <div>
+                <Heading
+                  as="h5"
+                  weight="500"
+                  title={animalData.data.contact.address.city}
+                  fontSize="14"
+                  color="#828282"
+                />
+              </div>
+            </SyledDiv>
+            <Attribute />
+            <Skip marginTop="36" />
+          </>
+        )}
       </StyledMain>
- 
     </div>
-  )
-}
+  );
+};
 
-export default Detaljevisning
+export default Detaljevisning;

@@ -40,7 +40,7 @@ const Description = () => {
       src={imagPath} />
 
       <Skip marginTop="106"
-        marginBottom="160px"
+       
       />
      
    

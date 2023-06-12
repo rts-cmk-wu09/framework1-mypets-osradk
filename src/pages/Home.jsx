@@ -1,6 +1,6 @@
 import Image from "../components/Image";
 import Description from "../template/Description";
-import imagPath from "../assets/animal.jpg";
+import imagePath from "../assets/animal.jpg";
 import styled from "styled-components"
  const StyledDiv=styled.div`
  background-color:
@@ -12,7 +12,7 @@ text-align:center;
 const Home = () => {
   return (
     <StyledDiv>
-      <Image src={imagPath} />
+      <Image src={imagePath} />
 
       <Description />
 

@@ -5,11 +5,12 @@ import { useContext } from "react";
 import { AnimalContext } from "../AnimalContext";
 
 const StyledDiv = styled.div`
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   border-radius: 100%;
   box-shadow: var(--box-shadow-dark);
   align-items: center;
+ 
   
 `;
 
@@ -24,9 +25,11 @@ const AttributeImg = () => {
           <Image
              style={{
                         borderRadius: "100%",
+                        
                       }}
-           width="50"
-          height="50"
+           width="70"
+          height="70"
+
           src={photo.full} />
         </StyledDiv>
       ))}

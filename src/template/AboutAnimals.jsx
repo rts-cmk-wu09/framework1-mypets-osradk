@@ -2,7 +2,7 @@
 import Heading from "../components/Heading";
 import { FaPeriscope } from "react-icons/fa";
 import { BiHeart } from "react-icons/bi";
-import hundImg from "../assets/animal.jpg";
+import hundImg from "../assets/noimg.png";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import useAxios from "../useAxios";
@@ -38,6 +38,7 @@ const StyledP = styled.p`
   max-width: 189px;
   color: rgba(79, 79, 79, 1);
   margin-top: 12px;
+ 
 `;
 
 const AboutAnimals = () => {
@@ -66,10 +67,11 @@ const AboutAnimals = () => {
                     <img
                       style={{
                         borderRadius: "16px",
-                        backgroundColor:"rgba(87, 65, 157, 1)"
+                       backgroundColor:"rgb(87, 65, 157)"
                       }}
                       width="124"
                       height="124"
+                      
                       src={
                         animal.photos.length > 0
                           ? animal.photos[0].full

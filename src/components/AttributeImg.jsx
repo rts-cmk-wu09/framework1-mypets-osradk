@@ -10,7 +10,6 @@ const StyledDiv = styled.div`
   border-radius: 100%;
   box-shadow: var(--box-shadow-dark);
   align-items: center;
- 
   
 `;
 

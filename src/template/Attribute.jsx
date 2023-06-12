@@ -43,7 +43,9 @@ const StyledDiv = styled.div`
 
 const StyledDiv1 = styled.div`
   display: flex;
+  flex-wrap: wrap;
   gap: 19px;
+
 `;
 const StyledSpan = styled.span`
   color: #57419d;
@@ -73,7 +75,7 @@ const Attribute = () => {
         </StyledSection>
       </StyledArticle>
       <StyledP>
-        {animalData.data.description} <StyledSpan>More</StyledSpan>
+        {animalData.data.description} 
       </StyledP>
       <StyledDiv1>
         <AttributeImg />

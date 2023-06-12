@@ -1,5 +1,5 @@
 import Image from "../components/Image";
-import detaljeImg from "../assets/animal1.png";
+import detaljeImg from "../assets/noimg.png";
 import styled from "styled-components";
 import Heading from "../components/Heading";
 import { FaPeriscope } from "react-icons/fa";
@@ -52,6 +52,9 @@ const Detaljevisning = () => {
       <StyledHeader>
         <Image
           position="absolut"
+     height="355"
+     width="100%"
+     style={{ backgroundColor: 'rgba(87, 65, 157, 1)' }}
           src={
             animalData.data.photos.length > 0
               ? animalData.data.photos[0].full

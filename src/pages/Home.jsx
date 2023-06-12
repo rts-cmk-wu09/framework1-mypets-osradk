@@ -6,7 +6,7 @@ import styled from "styled-components"
  background-color:
 rgba(245, 245, 250, 1);
 text-align:center;
-
+padding:24px;
  `
 
 const Home = () => {

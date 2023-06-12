@@ -33,7 +33,7 @@ const StyledSection1 = styled.section`
   padding: 24px 24px 0 24px;
 `;
 const StyledMain = styled.main`
-  padding-bottom: 75px;
+  padding-bottom: 100px;
 `;
 const Listevisning = () => {
   return (

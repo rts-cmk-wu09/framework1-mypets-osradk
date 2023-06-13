@@ -54,7 +54,7 @@ const Detaljevisning = () => {
           position="absolut"
      height="355"
      width="100%"
-     style={{ backgroundColor: 'rgba(87, 65, 157, 1)' }}
+     style={{ backgroundColor: 'rgba(87, 65, 157, 1);' }}
           src={
             animalData.data.photos.length > 0
               ? animalData.data.photos[0].full

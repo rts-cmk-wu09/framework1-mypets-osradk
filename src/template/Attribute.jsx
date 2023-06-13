@@ -45,7 +45,6 @@ const StyledDiv1 = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 19px;
-
 `;
 const StyledSpan = styled.span`
   color: #57419d;
@@ -74,9 +73,7 @@ const Attribute = () => {
           <Heading title={animalData.data.gender} as="h3" />
         </StyledSection>
       </StyledArticle>
-      <StyledP>
-        {animalData.data.description} 
-      </StyledP>
+      <StyledP>{animalData.data.description}</StyledP>
       <StyledDiv1>
         <AttributeImg />
       </StyledDiv1>

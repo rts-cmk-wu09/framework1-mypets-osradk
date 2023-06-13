@@ -49,9 +49,9 @@ function App() {
   return (
     <>
       <AnimalProvider>
-        {/* <AuthContext.Provider value={auth}> */}
+       
         <Outlet context={[context, setContext]} />
-        {/* </AuthContext.Provider> */}
+      
       </AnimalProvider>
     </>
   );

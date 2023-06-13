@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Listevisning from "./pages/Listevisning";
 import { AnimalProvider } from "./AnimalContext.jsx";
 import AboutAnimals from "./template/AboutAnimals.jsx";
+import ErrorView from "./pages/ErrorView.jsx";
 
 import {
   createBrowserRouter,
@@ -16,7 +17,7 @@ import {
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<App />}>
+    <Route path="/" element={<App />}errorElement={<ErrorView />} >
       <Route index element={<Home />} />
 
       <Route path="Listevisning" element={<Listevisning />} />

@@ -6,6 +6,7 @@ import styled from "styled-components";
 import Animals from "../template/Animals";
 import AboutAnimals from "../template/AboutAnimals";
 import Footer from "../template/Footer";
+import React, { useState } from "react";
 
 const StylesHeader = styled.header`
   border-bottom-left-radius: 20px;
@@ -36,6 +37,12 @@ const StyledMain = styled.main`
   padding-bottom: 100px;
 `;
 const Listevisning = () => {
+  const [selectedCategory, setSelectedCategory] = useState("All");
+
+  const handleCategorySelect = (category) => {
+    setSelectedCategory(category);
+  };
+
   return (
     <>
       <StylesHeader>
@@ -45,8 +52,8 @@ const Listevisning = () => {
               <Image
                 width="40"
                 height="40"
-                shadow={true}
-                borderRadius="100"
+                shadow="true"
+                borderradius="100"
                 src={ProfilImg}
               />
             </div>
@@ -59,15 +66,16 @@ const Listevisning = () => {
           </div>
         </StyledSection1>
         <StyledSection>
-          <Animals title="Dogs" />
-          <Animals title="Cats" />
-          <Animals title="Bird" />
-          <Animals title="Other" />
+          <Animals title="All" onSelectCategory={handleCategorySelect} />
+          <Animals title="Dog" onSelectCategory={handleCategorySelect} />
+          <Animals title="Cat" onSelectCategory={handleCategorySelect} />
+          <Animals title="Bird" onSelectCategory={handleCategorySelect} />
+          {/* <Animals title="Other" onSelectCategory={handleCategorySelect} /> */}
         </StyledSection>
       </StylesHeader>
 
       <StyledMain>
-        <AboutAnimals />
+        <AboutAnimals selectedCategory={selectedCategory} />
       </StyledMain>
       <footer>
         <Footer />

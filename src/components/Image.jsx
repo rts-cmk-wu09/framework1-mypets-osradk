@@ -17,7 +17,7 @@ const StyledImage = styled.img`
         object-fit: cover;
       `)};
 
-  border-radius:${(props) => props.borderRadius}%;
+  border-radius:${(props) => props.borderradius}%;
 `;
 
 const Image = (props) => {

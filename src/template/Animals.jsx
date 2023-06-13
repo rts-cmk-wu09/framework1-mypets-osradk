@@ -7,30 +7,30 @@ const StyledDiv = styled.div`
   box-shadow: var(--box-shadow-dark);
   background-color: #f5f5fa;
   display: flex;
-  justify-content:center;
+  justify-content: center;
   align-items: center;
- 
-
 `;
-const StyledSection=styled.section`
-padding-bottom:24px;
-
-`
+const StyledSection = styled.section`
+  padding-bottom: 24px;
+`;
 
 const Animals = (props) => {
-  
+  const handleClick = () => {
+    props.onSelectCategory(props.title);
+    // console.log("Animals - click: " + props.title);
+  };
+
   return (
-<StyledSection>
-    <StyledDiv>
-      <Heading
-        color="#7878AB"
-        as="h4"
-        title={props.title} 
-        weight="700"
-        fontSize="14"
-       
-      />
-    </StyledDiv>
+    <StyledSection>
+      <StyledDiv onClick={handleClick}>
+        <Heading
+          color="#7878AB"
+          as="h4"
+          title={props.title}
+          weight="700"
+          fontSize="14"
+        />
+      </StyledDiv>
     </StyledSection>
   );
 };

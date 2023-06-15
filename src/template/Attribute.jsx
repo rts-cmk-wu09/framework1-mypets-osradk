@@ -74,7 +74,7 @@ const Attribute = () => {
         </StyledSection>
       </StyledArticle>
       <StyledP>{animalData.data.description}</StyledP>
-      <StyledDiv1>
+      <StyledDiv1 key={animalData.id}>
         <AttributeImg />
       </StyledDiv1>
     </>

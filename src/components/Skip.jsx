@@ -14,19 +14,17 @@ const StyledButton = styled.button`
   border-radius: 32px;
   display: flex;
   justify-content: center;
-margin:0 auto;
-  margin-top: ${(props) => props.marginTop}px;
+  margin: 0 auto;
+  margin-top: ${(props) => props.margintop}px;
   margin-bottom: ${(props) => props.marginBottom}px;
 `;
 
 const Skip = (props) => {
   return (
     <Link to="/Listevisning">
-    <StyledButton {...props}>
-  
+      <StyledButton {...props}>
         <StyledH4>Skip</StyledH4>
-   
-    </StyledButton>
+      </StyledButton>
     </Link>
   );
 };

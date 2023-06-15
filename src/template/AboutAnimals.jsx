@@ -1,15 +1,15 @@
 // import Image from "../components/Image";
 import Heading from "../components/Heading";
 import { FaPeriscope } from "react-icons/fa";
-import { BiHeart } from "react-icons/bi";
-import { BiMessageAlt } from "react-icons/bi";
-import hundImg from "../assets/download.png";
+import { AiOutlineHeart } from "react-icons/ai";
+import { AiFillHeart } from "react-icons/ai";
+import hundImg from "../assets/images.png";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import useAxios from "../useAxios";
-import LoadingView from "../pages/LoadingViwe";
-import ErrorView from "../pages/LoadingViwe";
-import { useContext, useState } from "react";
+import LoadingView from "../pages/LoadingView";
+import ErrorView from "../pages/LoadingView";
+import React, { useContext, useState } from "react";
 import { AnimalContext } from "../AnimalContext";
 
 const StyledDiv = styled.div`
@@ -45,8 +45,31 @@ const StyledP = styled.p`
 const AboutAnimals = ({ selectedCategory }) => {
   const [data, error, loading] = useAxios();
   const { storeAnimalData } = useContext(AnimalContext);
+  const [likedItems, setLikedItems] = useState([]);
 
- 
+  const isLiked = (id) => {
+    return likedItems.includes(id);
+  };
+
+  const setLike = (id) => {
+    setLikedItems((prevLikedItems) => [...prevLikedItems, id]);
+  };
+
+  const removeLike = (id) => {
+    setLikedItems((prevLikedItems) =>
+      prevLikedItems.filter((itemId) => itemId !== id)
+    );
+  };
+
+  const handleBookmarkToggle = (id) => {
+    console.log(id);
+
+    if (!isLiked(id)) {
+      setLike(id);
+    } else {
+      removeLike(id);
+    }
+  };
 
   if (loading) {
     return <LoadingView />;
@@ -56,7 +79,7 @@ const AboutAnimals = ({ selectedCategory }) => {
     return <ErrorView />;
   }
 
-
+  console.log(storeAnimalData.data);
 
   return (
     <>
@@ -78,7 +101,7 @@ const AboutAnimals = ({ selectedCategory }) => {
                     <img
                       style={{
                         borderRadius: "16px",
-                        backgroundColor: "rgb(87, 65, 157)",
+                        // backgroundColor: "rgb(87, 65, 157)",
                       }}
                       width="124"
                       height="124"
@@ -104,10 +127,15 @@ const AboutAnimals = ({ selectedCategory }) => {
                       />
                     </div>
 
-                    <div >
-                
-                        <BiHeart className="heart-icon" />
-                    
+                    <div onClick={() => handleBookmarkToggle(animal.id)}>
+                      {isLiked(animal.id) ? (
+                        <AiFillHeart
+                          className="heart-icon"
+                          style={{ color: "red" }}
+                        />
+                      ) : (
+                        <AiOutlineHeart className="heart-icon" />
+                      )}
                     </div>
                   </StyledDiv>
                   <SyledDiv1>

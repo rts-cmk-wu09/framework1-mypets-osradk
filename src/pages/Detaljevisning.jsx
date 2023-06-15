@@ -1,5 +1,5 @@
 import Image from "../components/Image";
-import detaljeImg from "../assets/noimg.png";
+import detaljeImg from "../assets/images.png";
 import styled from "styled-components";
 import Heading from "../components/Heading";
 import { FaPeriscope } from "react-icons/fa";
@@ -27,9 +27,9 @@ const SyledDiv = styled.div`
 `;
 
 const Detaljevisning = () => {
-  const  {animalData}  = useContext(AnimalContext);
+  const { animalData } = useContext(AnimalContext);
 
-  console.log(animalData.data);
+  console.log(animalData);
   // const [animal, setAnimal] = useState(null);
 
   // useEffect(() => {
@@ -52,9 +52,9 @@ const Detaljevisning = () => {
       <StyledHeader>
         <Image
           position="absolut"
-     height="355"
-     width="100%"
-     style={{ backgroundColor: 'rgba(87, 65, 157, 1);' }}
+          height="355"
+          width="100%"
+          // style={{ backgroundColor: "rgba(87, 65, 157, 1);" }}
           src={
             animalData.data.photos.length > 0
               ? animalData.data.photos[0].full
@@ -69,7 +69,7 @@ const Detaljevisning = () => {
               title={animalData.data.name}
               as="h1"
               weight="900"
-              textAlign="left"
+              textalign="left"
             />
             <SyledDiv>
               <div>
@@ -86,7 +86,7 @@ const Detaljevisning = () => {
               </div>
             </SyledDiv>
             <Attribute />
-            <Skip marginTop="36" />
+            <Skip margintop="36" />
           </>
         )}
       </StyledMain>

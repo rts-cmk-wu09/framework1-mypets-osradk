@@ -50,7 +50,7 @@ const StyledSpan = styled.span`
   color: #57419d;
   font-weight: 900;
 `;
-const Attribute = () => {
+const Attribute = ({ onImageClick }) => {
   const { animalData } = useContext(AnimalContext);
 
   console.log(animalData.data);
@@ -75,7 +75,7 @@ const Attribute = () => {
       </StyledArticle>
       <StyledP>{animalData.data.description}</StyledP>
       <StyledDiv1 key={animalData.id}>
-        <AttributeImg />
+      <AttributeImg onImageClick={onImageClick} />
       </StyledDiv1>
     </>
   );

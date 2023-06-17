@@ -52,13 +52,15 @@ const AboutAnimals = ({ selectedCategory }) => {
   };
 
   const setLike = (id) => {
-    setLikedItems((prevLikedItems) => [...prevLikedItems, id]);
+    setLikedItems((prevLikedItems) => [prevLikedItems, id]);
+    localStorage.setItem(id, id);
   };
 
   const removeLike = (id) => {
     setLikedItems((prevLikedItems) =>
       prevLikedItems.filter((itemId) => itemId !== id)
     );
+    localStorage.removeItem(id);
   };
 
   const handleBookmarkToggle = (id) => {

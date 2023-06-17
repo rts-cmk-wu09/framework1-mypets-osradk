@@ -69,7 +69,7 @@ const Listevisning = () => {
           <Animals title="All" onSelectCategory={handleCategorySelect} />
           <Animals title="Dog" onSelectCategory={handleCategorySelect} />
           <Animals title="Cat" onSelectCategory={handleCategorySelect} />
-          <Animals title="Bird" onSelectCategory={handleCategorySelect} />
+          <Animals title="Rabbit" onSelectCategory={handleCategorySelect} />
           {/* <Animals title="Other" onSelectCategory={handleCategorySelect} /> */}
         </StyledSection>
       </StylesHeader>

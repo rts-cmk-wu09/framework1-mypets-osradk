@@ -5,7 +5,7 @@ import Heading from "../components/Heading";
 import { FaPeriscope } from "react-icons/fa";
 import Attribute from "../template/Attribute";
 import Skip from "../components/Skip";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AnimalContext } from "../AnimalContext";
 
 const StyledMain = styled.main`
@@ -28,25 +28,16 @@ const SyledDiv = styled.div`
 
 const Detaljevisning = () => {
   const { animalData } = useContext(AnimalContext);
+  const [largeImage, setLargeImage] = useState(animalData.data.photos.length > 0
+    ? animalData.data.photos[0].full
+    : detaljeImg);
+
+  const handleImageClick = (image) => {
+    setLargeImage(image);
+  };
 
   console.log(animalData);
-  // const [animal, setAnimal] = useState(null);
-
-  // useEffect(() => {
-  //   if (animalData) {
-  //     // Find the animal data based on the stored ID
-  //     const selectedAnimal = data.find((animal) => animal.id === animalData.id);
-  //     setAnimal(selectedAnimal);
-  //   }
-  // }, [animalData]);
-
-  // if (!animal) {
-  //   return <p>Loading...</p>;
-  // }
-
-  // Access the properties of the selected animal
-  //const { name, city, description, photos } = animal;
-
+ 
   return (
     <div>
       <StyledHeader>
@@ -54,12 +45,8 @@ const Detaljevisning = () => {
           position="absolut"
           height="355"
           width="100%"
-          // style={{ backgroundColor: "rgba(87, 65, 157, 1);" }}
-          src={
-            animalData.data.photos.length > 0
-              ? animalData.data.photos[0].full
-              : detaljeImg
-          }
+          src={largeImage}
+
         />
       </StyledHeader>
       <StyledMain>
@@ -85,7 +72,7 @@ const Detaljevisning = () => {
                 />
               </div>
             </SyledDiv>
-            <Attribute />
+            <Attribute onImageClick={handleImageClick} />
             <Skip margintop="36" />
           </>
         )}

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Heading from "../components/Heading";
+
 const StyledDiv = styled.div`
   width: 76px;
   height: 32px;
@@ -17,7 +18,6 @@ const StyledSection = styled.section`
 const Animals = (props) => {
   const handleClick = () => {
     props.onSelectCategory(props.title);
-    // console.log("Animals - click: " + props.title);
   };
 
   return (

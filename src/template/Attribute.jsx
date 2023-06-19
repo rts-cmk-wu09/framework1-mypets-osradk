@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled , { css }  from "styled-components";
 import Image from "../components/Image";
 import pawprint from "../assets/pawprint.png";
 import group from "../assets/Group.png";
@@ -18,7 +18,7 @@ const StyledP = styled.p`
 
 const StyledArticle = styled.article`
   display: flex;
-  gap: 46px;
+gap:16px;
   margin-top: 24px;
 `;
 const StyledSection = styled.section`
@@ -62,20 +62,23 @@ const Attribute = ({ onImageClick }) => {
           <StyledDiv>
             <Image src={pawprint} width="24" height="24" />
           </StyledDiv>
-
-          <Heading title={animalData.data.breeds.primary} as="h3" />
+          <div style={{ width: "100px" }}>
+            <Heading title={animalData.data.breeds.primary} as="h3" />
+          </div>
         </StyledSection>
         <StyledSection>
           <StyledDiv>
             <Image src={group} width="24" height="24" />
           </StyledDiv>
-
-          <Heading title={animalData.data.gender} as="h3" />
+          <div>
+            <Heading title={animalData.data.gender} as="h3" />
+          </div>
         </StyledSection>
       </StyledArticle>
-      <StyledP>{animalData.data.description}</StyledP>
+      <div style={{ width: "327px" }}>
+      <StyledP>{animalData.data.description}</StyledP></div>
       <StyledDiv1 key={animalData.id}>
-      <AttributeImg onImageClick={onImageClick} />
+        <AttributeImg onImageClick={onImageClick} />
       </StyledDiv1>
     </>
   );

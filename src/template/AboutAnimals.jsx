@@ -45,31 +45,44 @@ const StyledP = styled.p`
 const AboutAnimals = ({ selectedCategory }) => {
   const [data, error, loading] = useAxios();
   const { storeAnimalData } = useContext(AnimalContext);
-  const [likedItems, setLikedItems] = useState([]);
 
-  const isLiked = (id) => {
-    return likedItems.includes(id);
+  const [likedItems, setLikedItems] = useState(() => {
+    const storedLikedItems = localStorage.getItem("likedItems");
+    return storedLikedItems ? JSON.parse(storedLikedItems) : [];
+  });
+
+  const isLiked = (animal) => {
+    const storedLikedItems = localStorage.getItem("likedItems");
+    if (storedLikedItems) {
+      const likedItemsArray = JSON.parse(storedLikedItems);
+      return likedItemsArray.some((item) => item.id === animal.id);
+    }
+    return false;
   };
 
-  const setLike = (id) => {
-    setLikedItems((prevLikedItems) => [prevLikedItems, id]);
-    localStorage.setItem(id, id);
+  const setLike = (animal) => {
+    setLikedItems((prevLikedItems) => {
+      const newLikedItems = [...prevLikedItems, animal];
+      localStorage.setItem("likedItems", JSON.stringify(newLikedItems));
+      return newLikedItems;
+    });
   };
 
-  const removeLike = (id) => {
-    setLikedItems((prevLikedItems) =>
-      prevLikedItems.filter((itemId) => itemId !== id)
-    );
-    localStorage.removeItem(id);
+  const removeLike = (animal) => {
+    setLikedItems((prevLikedItems) => {
+      const newLikedItems = prevLikedItems.filter(
+        (itemId) => itemId !== animal
+      );
+      localStorage.setItem("likedItems", JSON.stringify(newLikedItems));
+      return newLikedItems;
+    });
   };
 
-  const handleBookmarkToggle = (id) => {
-    console.log(id);
-
-    if (!isLiked(id)) {
-      setLike(id);
+  const handleBookmarkToggle = (animal) => {
+    if (!isLiked(animal)) {
+      setLike(animal);
     } else {
-      removeLike(id);
+      removeLike(animal);
     }
   };
 
@@ -80,8 +93,6 @@ const AboutAnimals = ({ selectedCategory }) => {
   if (error) {
     return <ErrorView />;
   }
-
-  console.log(storeAnimalData.data);
 
   return (
     <>
@@ -129,8 +140,8 @@ const AboutAnimals = ({ selectedCategory }) => {
                       />
                     </div>
 
-                    <div onClick={() => handleBookmarkToggle(animal.id)}>
-                      {isLiked(animal.id) ? (
+                    <div onClick={() => handleBookmarkToggle(animal)}>
+                      {isLiked(animal) ? (
                         <AiFillHeart
                           className="heart-icon"
                           style={{ color: "red" }}

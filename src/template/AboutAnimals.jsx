@@ -71,7 +71,7 @@ const AboutAnimals = ({ selectedCategory }) => {
   const removeLike = (animal) => {
     setLikedItems((prevLikedItems) => {
       const newLikedItems = prevLikedItems.filter(
-        (itemId) => itemId !== animal
+        (item) => item.id !== animal.id
       );
       localStorage.setItem("likedItems", JSON.stringify(newLikedItems));
       return newLikedItems;

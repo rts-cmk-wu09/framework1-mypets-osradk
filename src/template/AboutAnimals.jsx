@@ -3,7 +3,7 @@ import Heading from "../components/Heading";
 import { FaPeriscope } from "react-icons/fa";
 import { AiOutlineHeart } from "react-icons/ai";
 import { AiFillHeart } from "react-icons/ai";
-import hundImg from "../assets/images.png";
+import hundImg from "../assets/noimg2.jpg";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import useAxios from "../useAxios";
@@ -22,10 +22,11 @@ const SyledDiv1 = styled.div`
   display: flex;
   gap: 5px;
 `;
+
 const StyledArticle = styled.article`
   display: flex;
   justify-content: space-between;
-  padding: 8px;
+padding-right:12px;
   width: 327px;
   height: 130px;
   border-radius: 16px;
@@ -113,11 +114,11 @@ const AboutAnimals = ({ selectedCategory }) => {
                   >
                     <img
                       style={{
-                        borderRadius: "16px",
-                        // backgroundColor: "rgb(87, 65, 157)",
+                        borderTopLeftRadius: "16px",
+                        borderBottomLeftRadius: "16px"
                       }}
                       width="124"
-                      height="124"
+                    height="130"
                       src={
                         animal.photos.length > 0
                           ? animal.photos[0].full
@@ -171,7 +172,7 @@ const AboutAnimals = ({ selectedCategory }) => {
                       animal.description.length > 25
                         ? animal.description.split(" ").slice(0, 8).join(" ") +
                           "..."
-                        : "Taking care of a pet is my favorite, it helps me to..."}
+                        : "Taking care of a pet is my favorite, it helps me to..."}{" "}
                     </StyledP>
                   </div>
                 </section>

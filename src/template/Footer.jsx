@@ -1,5 +1,4 @@
-import styled from "styled-components"
-
+import styled, { css } from "styled-components";
 import { BiHeart } from "react-icons/bi";
 import { FiHome } from "react-icons/fi";
 import { RxPerson } from "react-icons/rx";
@@ -20,9 +19,13 @@ border-top-left-radius: 20px;
   bottom:0;
 
 `
+
+
+
 const Footer = () => {
   return (
     <StyledDiv>
+        
       <FiHome className="icon"/>
       <IoChatbubbleOutline className="icon"/>
       <BiHeart className="icon"/>

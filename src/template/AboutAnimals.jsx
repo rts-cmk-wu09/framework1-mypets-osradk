@@ -26,13 +26,14 @@ const SyledDiv1 = styled.div`
 const StyledArticle = styled.article`
   display: flex;
   justify-content: space-between;
-padding-right:12px;
+  padding-right: 12px;
   width: 327px;
   height: 130px;
   border-radius: 16px;
   box-shadow: var(--box-shadow-dark);
   margin: 30px auto;
   background-color: #f5f5fa;
+  overflow: hidden;
 `;
 
 const StyledP = styled.p`
@@ -43,7 +44,7 @@ const StyledP = styled.p`
   margin-top: 12px;
 `;
 
-const AboutAnimals = ({ selectedCategory }) => {
+const AboutAnimals = ({ selectedCategory, selectedCity }) => {
   const [data, error, loading] = useAxios();
   const { storeAnimalData } = useContext(AnimalContext);
 
@@ -104,6 +105,11 @@ const AboutAnimals = ({ selectedCategory }) => {
             (animal) =>
               selectedCategory === "All" || animal.type === selectedCategory
           )
+          .filter(
+            (animal) =>
+              selectedCity === "All" ||
+              animal.contact.address.city === selectedCity
+          )
           .map((animal) => (
             <div key={animal.id}>
               <StyledArticle>
@@ -115,10 +121,10 @@ const AboutAnimals = ({ selectedCategory }) => {
                     <img
                       style={{
                         borderTopLeftRadius: "16px",
-                        borderBottomLeftRadius: "16px"
+                        borderBottomLeftRadius: "16px",
                       }}
                       width="124"
-                    height="130"
+                      height="130"
                       src={
                         animal.photos.length > 0
                           ? animal.photos[0].full
@@ -127,7 +133,7 @@ const AboutAnimals = ({ selectedCategory }) => {
                     />
                   </Link>
                 </section>
-                <section>
+                <section className="animals">
                   <StyledDiv>
                     <div>
                       <Heading

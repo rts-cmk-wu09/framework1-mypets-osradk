@@ -7,6 +7,9 @@ import Animals from "../template/Animals";
 import AboutAnimals from "../template/AboutAnimals";
 import Footer from "../template/Footer";
 import React, { useState } from "react";
+import useAxios from "../useAxios.js";
+import LoadingView from "../pages/LoadingView";
+import ErrorView from "../pages/LoadingView";
 
 const StylesHeader = styled.header`
   border-bottom-left-radius: 20px;
@@ -22,10 +25,24 @@ const StyledDiv = styled.div`
   justify-content: space-between;
 `;
 const StyledSection = styled.section`
-  display: flex;
+  ${
+    "" /* display: flex;
   justify-content: space-around;
   margin-top: 28px;
-  width: 100%;
+  width: 100%; */
+  }
+
+  display: flex;
+  overflow-x: scroll;
+
+  margin: 1rem -1rem;
+  padding: 1rem 2rem 1rem 2rem;
+  gap: 1rem;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 const StyledSection1 = styled.section`
@@ -38,9 +55,23 @@ const StyledMain = styled.main`
 `;
 const Listevisning = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedCity, setSelectedCity] = useState("All");
+  const [data, error, loading] = useAxios();
+
+  if (loading) {
+    return <LoadingView />;
+  }
+
+  if (error) {
+    return <ErrorView />;
+  }
 
   const handleCategorySelect = (category) => {
     setSelectedCategory(category);
+  };
+
+  const handleCitySelect = (city) => {
+    setSelectedCity(city);
   };
 
   return (
@@ -50,6 +81,7 @@ const Listevisning = () => {
           <StyledDiv>
             <div>
               <Image
+                style={{ border: "2px solid  whitesmoke", objectFit: "cover" }}
                 width="40"
                 height="40"
                 shadow="true"
@@ -58,7 +90,7 @@ const Listevisning = () => {
               />
             </div>
             <div>
-              <DropdownInput />
+              <DropdownInput data={data} onSelectCity={handleCitySelect} />
             </div>
           </StyledDiv>
           <div>
@@ -70,12 +102,17 @@ const Listevisning = () => {
           <Animals title="Dog" onSelectCategory={handleCategorySelect} />
           <Animals title="Cat" onSelectCategory={handleCategorySelect} />
           <Animals title="Rabbit" onSelectCategory={handleCategorySelect} />
+          <Animals title="Horse" onSelectCategory={handleCategorySelect} />
+          <Animals title="Bird" onSelectCategory={handleCategorySelect} />
           {/* <Animals title="Other" onSelectCategory={handleCategorySelect} /> */}
         </StyledSection>
       </StylesHeader>
 
       <StyledMain>
-        <AboutAnimals selectedCategory={selectedCategory} />
+        <AboutAnimals
+          selectedCategory={selectedCategory}
+          selectedCity={selectedCity}
+        />
       </StyledMain>
       <footer>
         <Footer />

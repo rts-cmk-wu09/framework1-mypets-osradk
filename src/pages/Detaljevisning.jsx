@@ -73,7 +73,7 @@ const Detaljevisning = () => {
               </div>
             </SyledDiv>
             <Attribute onImageClick={handleImageClick} />
-            <Skip margintop="36" />
+            <Skip margintop="36" title="Back" />
           </>
         )}
       </StyledMain>

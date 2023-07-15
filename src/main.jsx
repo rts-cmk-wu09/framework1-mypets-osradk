@@ -19,7 +19,6 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}errorElement={<ErrorView />} >
       <Route index element={<Home />} />
-
       <Route path="Listevisning" element={<Listevisning />} />
       <Route path="Detaljevisning" element={<Detaljevisning />} />
     </Route>

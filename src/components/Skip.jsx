@@ -23,7 +23,7 @@ const Skip = (props) => {
   return (
     <Link to="/Listevisning">
       <StyledButton {...props}>
-        <StyledH4>Back</StyledH4>
+        <StyledH4>{props.title}</StyledH4>
       </StyledButton>
     </Link>
   );

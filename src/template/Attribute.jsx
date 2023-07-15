@@ -43,7 +43,7 @@ const StyledDiv = styled.div`
 
 const StyledDiv1 = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 19px;
 `;
 const StyledSpan = styled.span`
@@ -79,6 +79,7 @@ const Attribute = ({ onImageClick }) => {
       <StyledP>{animalData.data.description}</StyledP></div>
       <StyledDiv1 key={animalData.id}>
         <AttributeImg onImageClick={onImageClick} />
+    
       </StyledDiv1>
     </>
   );

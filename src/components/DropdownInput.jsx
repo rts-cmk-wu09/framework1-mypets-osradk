@@ -1,15 +1,22 @@
-import  { useState } from 'react';
-import { FaMapMarkerAlt } from 'react-icons/fa';
-import './DropdownInput.css'; // Import custom CSS file for component styling
+import { useState } from "react";
+import { FaMapMarkerAlt } from "react-icons/fa";
+import "../components/DropdownInput.css"; 
 
-const DropdownInput = () => {
-  const [selectedOption, setSelectedOption] = useState('');
-  const options = ['New York City', 'Danmark', 'Irak'];
+const DropdownInput = ({ data, onSelectCity }) => {
+  const [selectedOption, setSelectedOption] = useState("");
+  const cities = data
+    ? [...new Set(data.animals.map((animal) => animal.contact.address.city))]
+    : [];
+
+  if (cities != null) {
+    cities.unshift("All");
+  }
 
   const handleSelectOption = (event) => {
-    setSelectedOption(event.target.value);
+    const selectedCity = event.target.value;
+    setSelectedOption(selectedCity);
+    onSelectCity(selectedCity); // Trigger the callback with the selected city
   };
-
   return (
     <div className="dropdown-input-container">
       <div className="input-wrapper">
@@ -20,14 +27,14 @@ const DropdownInput = () => {
           onChange={handleSelectOption}
         >
           <option value="">Select City</option>
-          {options.map((option, index) => (
-            <option key={index} value={option}>
-              {option}
+          {cities.map((city, index) => (
+            <option key={index} value={city}>
+              {city}
             </option>
           ))}
         </select>
       </div>
-      {selectedOption && <p className="selected-option">Selected option: {selectedOption}</p>}
+     
     </div>
   );
 };

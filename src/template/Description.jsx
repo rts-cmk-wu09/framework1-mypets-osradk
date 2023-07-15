@@ -31,7 +31,7 @@ const Description = () => {
       </StyledDiv>
       <Image width="40" src={imagPath} />
 
-      <Skip margintop="106" />
+      <Skip margintop="106"   title="Skip"/>
     </>
   );
 };

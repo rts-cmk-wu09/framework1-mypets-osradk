@@ -36,14 +36,14 @@ const IconWrapper = styled.div`
     props.selected &&
     css`
       svg {
-        color: purple;
+        color: rgba(87, 65, 157, 1);
         box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.3);
       }
     `}
 
   &:hover {
     svg {
-      color: purple;
+      color: rgba(87, 65, 157, 1);
     }
   }
 `;

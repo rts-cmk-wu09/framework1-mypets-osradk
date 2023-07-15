@@ -49,7 +49,7 @@ const IconWrapper = styled.div`
 `;
 
 const Footer = () => {
-  const [selectedIcon, setSelectedIcon] = useState(null);
+  const [selectedIcon, setSelectedIcon] = useState("home");
 
   const handleIconClick = (icon) => {
     setSelectedIcon(icon);

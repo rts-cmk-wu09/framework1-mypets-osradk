@@ -21,6 +21,7 @@ const router = createBrowserRouter(
       <Route index element={<Home />} />
       <Route path="Listevisning" element={<Listevisning />} />
       <Route path="Detaljevisning" element={<Detaljevisning />} />
+      
     </Route>
   )
 );

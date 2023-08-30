@@ -11,18 +11,16 @@
     -10px -10px 20px #ffffff;
 }
 
-
 * {
   margin: 0;
   padding: 0;
-  
 }
 
-a{
-  text-decoration:none;
+a {
+  text-decoration: none;
 }
 
-img{
+img {
   max-width: 100%;
 }
 body,
@@ -44,7 +42,7 @@ p {
   background-color: rgba(245, 245, 249, 1);
   box-shadow: var(--box-shadow-dark);
 }
-.heart-icon{
+.heart-icon {
   font-size: 16px;
   color: rgba(87, 65, 157, 1);
   border-radius: 50%;
@@ -52,13 +50,12 @@ p {
   background-color: rgba(245, 245, 249, 1);
   box-shadow: var(--box-shadow-dark);
 }
-.navigation-icon{
+.navigation-icon {
   font-size: 16px;
   color: rgba(87, 65, 157, 1);
-
 }
-.icon{
-  color:#BDBDBD;
+.icon {
+  color: #bdbdbd;
   font-size: 20px;
   font-weight: 900;
   border-radius: 50%;
@@ -66,3 +63,56 @@ p {
   background-color: rgba(245, 245, 249, 1);
   box-shadow: var(--box-shadow-dark);
 }
+
+.dfs {
+  cursor: pointer;
+border: 1px solid red;
+cursor: hand;
+}
+ 
+
+/* Dette er ChatComponent stylling  */
+.chat-container {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.chat-messages {
+  background-color: #f2f2f2;
+  padding: 10px;
+  margin-bottom: 10px;
+  max-height: 200px;
+  overflow-y: scroll;
+}
+
+.message {
+  background-color: #fff;
+  padding: 5px 10px;
+  margin-bottom: 5px;
+}
+
+.chat-input {
+  display: flex;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.chat-input button {
+  padding: 5px 10px;
+  margin-left: 5px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.chat-input button:hover {
+  background-color: #0056b3;
+}
+

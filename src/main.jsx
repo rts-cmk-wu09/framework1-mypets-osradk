@@ -4,8 +4,8 @@ import App from "./App.jsx";
 import Detaljevisning from "./pages/Detaljevisning";
 import Home from "./pages/Home";
 import Listevisning from "./pages/Listevisning";
-import { AnimalProvider } from "./AnimalContext.jsx";
-import AboutAnimals from "./template/AboutAnimals.jsx";
+// import { AnimalProvider } from "./AnimalContext.jsx";
+// import AboutAnimals from "./template/AboutAnimals.jsx";
 import ErrorView from "./pages/ErrorView.jsx";
 
 import {
@@ -29,9 +29,9 @@ const router = createBrowserRouter(
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={router}>
-      <AnimalProvider>
+      {/* <AnimalProvider>
         <AboutAnimals />
-      </AnimalProvider>
+      </AnimalProvider> */}
     </RouterProvider>
   </React.StrictMode>
 );

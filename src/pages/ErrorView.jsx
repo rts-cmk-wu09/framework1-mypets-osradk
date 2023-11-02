@@ -25,7 +25,8 @@ const ErrorView = () => {
    <StyledDiv>
       <Link to="/Listevisning">
         <StyledLottie animationData={ErrorLottie} />
-      </Link></StyledDiv>
+      </Link>
+      </StyledDiv>
    
   );
 };

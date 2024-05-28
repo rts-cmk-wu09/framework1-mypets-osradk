@@ -14,7 +14,11 @@ import ErrorView from "../pages/LoadingView";
 const StylesHeader = styled.header`
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
-  position: sticky;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+ 
   background-color: white;
   width: 100%;
   top: 0;
@@ -25,24 +29,14 @@ const StyledDiv = styled.div`
   justify-content: space-between;
 `;
 const StyledSection = styled.section`
-  ${
-    "" /* display: flex;
-  justify-content: space-around;
-  margin-top: 28px;
-  width: 100%; */
-  }
+display: flex;
+justify-content:center;
+align-items:center;
+gap: 10px;
 
-  display: flex;
-  overflow-x: scroll;
 
-  margin: 1rem -1rem;
-  padding: 1rem 2rem 1rem 2rem;
-  gap: 1rem;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  &::-webkit-scrollbar {
-    display: none;
-  }
+
+
 `;
 
 const StyledSection1 = styled.section`
@@ -52,6 +46,11 @@ const StyledSection1 = styled.section`
 `;
 const StyledMain = styled.main`
   padding-bottom: 100px;
+  margin-top: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 const Listevisning = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -102,9 +101,6 @@ const Listevisning = () => {
           <Animals title="Dog" onSelectCategory={handleCategorySelect} />
           <Animals title="Cat" onSelectCategory={handleCategorySelect} />
           <Animals title="Rabbit" onSelectCategory={handleCategorySelect} />
-          <Animals title="Horse" onSelectCategory={handleCategorySelect} />
-          <Animals title="Bird" onSelectCategory={handleCategorySelect} />
-          {/* <Animals title="Other" onSelectCategory={handleCategorySelect} /> */}
         </StyledSection>
       </StylesHeader>
 
